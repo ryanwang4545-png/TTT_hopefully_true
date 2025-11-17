@@ -1,0 +1,333 @@
+% Time-Tier Theory (TTT) — concise derivations, canonical formulas, the "genie" thought experiment,
+% and black-hole coupling predictions
+% Compile with pdflatex/xelatex
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Time-Tier Theory (TTT or Genie Theory) — Thought experiment, equations, and black-hole coupling predictions}
+\author{(Ryan Wang) \\ Prepared for internal use}
+\date{November 10, 2025 \\ Thought of before RN}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note summarizes the mathematical core of Time-Tier Theory (TTT) using Reciprocal Number (RN) algebra, presents the ``Man and the Genie'' thought experiment and its precise TTT interpretation, provides concise derivations that lead from RN-valued classical fields to the observable quantum operator algebra via projection, and presents explicit models for inter-tier coupling near horizons with predictions for modified Hawking emission spectra. Equations are numbered for direct citation.
+\end{abstract}
+
+\tableofcontents
+
+\section{Premise and overview}
+TTT proposes that the fundamental classical fields of general relativity and matter are \emph{RN-valued}: they possess coefficients on a small algebra of basis elements encoding multiple time tiers. Observable quantum mechanics on our tier \(T_0\) arises by (i) deforming the RN classical Poisson structure (introducing \(\hbar\)) and (ii) applying a projection \(P_0\) from RN algebra to our tier. Inter-tier coupling of strength \(S\) controls departures from standard QM/GR and becomes relevant near extreme redshift (horizons) or resonance.
+
+This document provides the canonical axioms, derivations, a concrete thought experiment illustrating the ontology, and explicit formulas for TTT-induced modifications to Hawking radiation.
+
+\section{The Man and the Genie, the thought experiment}
+\subsection{Statement of the thought experiment}
+A man wishes for a genie for the ability to ``stop time''. The genie grants the request but only grants him the ability to freeze time and not unfreeze time. From the genie's perspective (a higher-tier observer), the man becomes a temporally extended object: his entire worldline is frozen into a single RN-valued configuration that contains all of his temporal slices simultaneously, whilst for the man his whole reality of time exists within a single moment of the upper tier's time.
+
+Two observations:
+\begin{enumerate}
+  \item From our tier \(T_0\) (the genie's background), the man appears \emph{frozen} at a single time coordinate. He cannot interact with unfrozen things (without infinite energy) and, therefore, is effectively inaccessible.
+  \item From the man's own local tier, he experiences an \emph{infinite amount of proper time} (his internal clocks run) because he is decoupled from the genie's time flow, creating the sensation of being ``smeared'' across many genie's-time instants.
+\end{enumerate}
+
+\subsection{Phenomenological questions}
+\begin{itemize}
+  \item Where has the man ``gone'' from the genie's viewpoint? In TTT this is precisely the question of which RN-coefficients of the global RN-valued field \(\Phi\) carry the man's degrees of freedom.
+  \item What do observations of the man (if possible) look like to an observer in \(T_0\)? Observations correspond to the projection operator \(P_0\), which reduces RN-structure to quantities measurable in \(T_0\).
+  \item How does this thought experiment relate to quantum superposition and collapse? The man being simultaneously present at many genie's-time slices maps directly to a classical RN superposition which collapses under \(P_0\) to a single observed outcome (the ``point'' the observer finds).
+\end{itemize}
+
+\section{What reality is under TTT (tiered times) — ontology}
+\subsection{RN-valued ontology}
+The state of the universe is described by RN-valued fields:
+\begin{equation}\label{eq:phi_expansion_new}
+\Phi(x) = \sum_{X\in\mathcal B} \phi_X(x)\,X,
+\end{equation}
+where the basis \(\mathcal B\) contains elements that encode temporal tiers: \(1\) (our tier scalar), \(\varepsilon\) (infinitesimal / faster or lower tier marker depending on convention), \(\omega\) (infinite / other-tier marker), etc. Basis relations include
+\begin{equation}\label{eq:rn_axioms_new}
+\varepsilon^2=0,\qquad \varepsilon\omega=\omega\varepsilon=1,
+\end{equation}
+with restricted associativity rules for mixed products.
+
+Each coefficient \(\phi_X(x)\) is an ordinary complex-valued field defined on spacetime; \(\Phi\) encodes a stack of tier-specific classical configurations simultaneously.
+
+\subsection{The man as an RN-localized excitation}
+Model the man as a localized excitation of \(\Phi\): a compactly supported profile in space whose time-dependence is encoded in the coefficients \(\phi_X(x)\). Under normal circumstances, the dominant piece is \(\phi_{1}(x)\) (our tier). Under the genie's freeze the man is transferred into a configuration where the \(\omega\)-coefficient (or another tier coefficient) carries his effective worldline:
+\[
+\Phi_{\rm man}(x)=\phi_{1}^{(\rm man)}(x)\cdot 1 + \phi_{\omega}^{(\rm man)}(x)\cdot\omega + \cdots
+\]
+If the genie elevates the man to a different time tier, \(\phi_{\omega}^{(\rm man)}\) becomes the primary carrier of the man's degrees of freedom.
+
+\subsection{Superposition as a deterministic RN object}
+From the genie's viewpoint, the man is ``smeared'' across many \(t\)-slices because the RN coefficient \(\phi_{\omega}^{(\rm man)}(x)\) stores a continuum of internal-time configurations. Importantly, this is \emph{deterministic} — the RN-valued field satisfies classical deterministic PDEs (see Section \ref{sec:rn_dynamics}) that fix all coefficients.
+
+\section{Interpretation: quantum mechanics as a lowered-time projection of GR}
+\label{sec:interpretation}
+\subsection{Projection and observation}
+Observation in TTT is formalized by the projection operator \(P_0\) that maps RN elements to our observable tier \(T_0\):
+\begin{equation}\label{eq:proj_def_new}
+P_0(X) := \mathrm{Normalize}\big(\varepsilon\cdot X\big).
+\end{equation}
+Key identity:
+\begin{equation}\label{eq:proj_identity_new}
+P_0(\omega)=\varepsilon\omega = 1.
+\end{equation}
+
+Applied to the man's RN field, the projection picks out certain coefficients and converts them to observable scalars:
+\[
+\psi_{\rm obs}(x) := P_0\big(\Phi_{\rm man}(x)\big) = \mathrm{Normalize}\big(\varepsilon \cdot \Phi_{\rm man}(x)\big).
+\]
+When $\Phi_{\rm man}$ has significant \(\omega\)-content, \(\psi_{\rm obs}\) is essentially the \(\phi_{\omega}\) amplitude mapped into a scalar function on our tier. Normalization is what produces probabilistic interpretations (Born rule) for measurement outcomes.
+
+\subsection{Superposition and collapse}
+The \emph{apparent} superposition arises because \(\Phi\) contains many equally valid internal-time configurations (the man at many genie's instants). When an observer interacts (measures), the effective operation is:
+\[
+\Phi \;\xrightarrow{\ P_0\ }\; \psi_{\rm obs} \;\xrightarrow{\ \text{normalize}\ }\; \Psi,
+\]
+where \(\Psi\) is the normalized state (wavefunction) on our tier. The \emph{collapse} is not a dynamical stochastic process in the fundamental RN theory; it is the mathematical operation of projection and normalization mapping a richer deterministic object to a reduced description (information loss). Probabilities arise from the squared norm of coefficients after projection:
+\[
+\text{Prob}(x\in\Delta) \approx \int_\Delta |\Psi(x)|^2\,d^3x.
+\]
+This is the Born rule as an emergent normalization statement.
+
+\subsection{Why interference and complex phases appear}
+Complex-valued coefficients \(\phi_X(x)\) are allowed in the RN expansion; interference arises because different RN-coefficients can superpose coherently when projected. The complex phase factors (e.g. \(e^{-iEt/\hbar}\)) appear as a convenient representation of positive-frequency sectors \(\phi_\omega\) once \(\hbar\) exists (see Section \ref{sec:quantization}). In TTT, \(\hbar\) first arises as the deformation parameter in RN quantization; phases then acquire physical significance in the projected dynamics.
+
+\subsection{The man-and-genie thought experiment, formally}
+Let \(\Phi_{\rm man}\) be the RN field describing the man. Under the genie freeze:
+\[
+\Phi_{\rm man}(x)\ \text{becomes dominated by}\ \phi_{\omega}^{(\rm man)}(x)\cdot\omega.
+\]
+Observation at a spacetime point \(x_0\) corresponds to evaluating
+\[
+\psi_{\rm obs}(x_0) = P_0(\Phi_{\rm man})(x_0) = \mathrm{Normalize}(\varepsilon\phi_{\omega}^{(\rm man)}(x_0)),
+\]
+and hence the observer locates the man at some particular location \(x^*\) with probability determined by \(|\psi_{\rm obs}(x)|^2\). The many possible genie's-time instants encoded in \(\phi_{\omega}^{(\rm man)}\) are therefore mapped to probabilistic outcomes on \(T_0\).
+
+\section{RN algebra: axioms and operational rules}
+\subsection{Primitive relations}
+The RN algebra is spanned by \(\mathcal B=\{1,\varepsilon,\omega,E,\Omega,\dots\}\) with primitive relations used in the main text:
+\begin{align}\label{eq:rn_axioms}
+\varepsilon^2 &= 0, &\varepsilon\omega &= \omega\varepsilon = 1.
+\end{align}
+Restricted associativity: products that involve at most two distinct irreducible basis elements are associative:
+\begin{equation}\label{eq:assoc2}
+(ab)c = a(bc)\quad\text{if the product involves at most two distinct irreducible basis elements.}
+\end{equation}
+\section{Consequences: elevation condition, gravity as \emph{omnitier}, and the information paradox}\label{sec:consequences}
+
+This section collects concrete consequences of TTT that follow from the RN algebra, the projection mechanism \(P_0\), and the inter-tier coupling model introduced earlier. We express (i) the energy / time mapping condition that governs when a lower/higher tier excitation is ``elevated'' (visible) to our tier, (ii) why black-hole horizons are natural sites for such elevation, (iii) how gravity functions as an \emph{omnitier} field coupling coefficients across tiers, and (iv) how information is preserved in the RN description while becoming inaccessible in the projected description — resolving the information paradox.
+
+\subsection{Tier time / energy mapping and the elevation (resonance) condition}
+Label a non-our tier by \(T\) and denote its intrinsic mode energy by \(E_T\) (or frequency \(\Omega_T=E_T/\hbar\)). Let \(E_{\rm obs}\) (or \(\omega_{\rm obs}=\!E_{\rm obs}/\hbar\)) be the energy/frequency of an available mode in our tier. Gravitational redshift and background geometry induce a mapping factor \(M(r;T\to 0)\) that relates energies measured on tier \(T\) at radius \(r\) to energies as seen by an observer in \(T_0\):
+\begin{equation}\label{eq:mapping}
+E_{\rm mapped}(r;T) \;=\; M(r;T\!\to\!0)\; E_T.
+\end{equation}
+(When the geometry is standard GR this factor reduces to the usual redshift, e.g. \(M=\sqrt{g_{tt}(r_{\rm source})/g_{tt}(r_{\rm obs})}\) for stationary spacetimes; in RN-GR the mapping is generalized and may itself have tier components.)
+
+Define the \emph{elevation (resonance) condition} as the smallness of the mismatch between mapped tier energy and an available energy in our tier:
+\begin{equation}\label{eq:resonance_cond}
+\Delta E(\omega) \;=\; E_{\rm mapped}(r;T) - E_{\rm obs} \;\approx\; 0\quad\Longrightarrow\quad \text{resonant elevation (}S_{\rm eff}\text{ large)}.
+\end{equation}
+A phenomenological resonant coupling was introduced earlier,
+\[
+S_{\rm eff}(\omega) \;=\; S_0 + \frac{A\,\Gamma^2}{(E_{\rm mapped}-E_{\rm obs})^2 + \Gamma^2},
+\]
+so \(\Delta E\approx0\) produces \(S_{\rm eff}\) of order \(A\) and a visible spectral enhancement (cf.\ Eq.~\eqref{eq:S_eff}).
+
+\paragraph{Interpretation in time-language.} Because energy and frequency are inversely tied to time scales, matching \(E_{\rm mapped}\) to \(E_{\rm obs}\) is equivalent to matching internal time rates: a mode whose intrinsic time-scale (tick-rate) on tier \(T\) is \(\tau_T\) will become observable in \(T_0\) when gravitational/time-dilation factors map that tick-rate into our observable clock ticks.
+
+\subsection{Why black-hole horizons are natural elevation sites}
+Near a horizon the metric component \(g_{tt}(r)\) approaches zero, producing extreme redshift factors. In semiclassical GR for a static spherically symmetric hole observed at infinity:
+\[
+\omega_{\infty}=\sqrt{\frac{g_{tt}(r_{\rm source})}{g_{tt}(r_{\infty})}}\,\omega_{\rm source}\approx \sqrt{g_{tt}(r_{\rm source})}\,\omega_{\rm source},
+\]
+and \(g_{tt}(r_{\rm source})\to0\) as \(r_{\rm source}\to r_{\rm horizon}\). Thus:
+\begin{itemize}
+  \item modes sourced very close to the horizon are redshifted to arbitrarily low frequencies at infinity, and
+  \item conversely, modes with very high intrinsic frequency (fast-tier modes) near the horizon can be mapped into the finite-frequency band of our detectors.
+\end{itemize}
+In TTT the mapping factor \(M(r;T\to 0)\) can therefore be \emph{tuned} by geometry so that \(\Delta E\) crosses zero for certain tier modes; the horizon provides the geometric amplification (or suppression) required for resonant elevation.
+
+This geometric mechanism explains why black-hole-like configurations are the most promising astrophysical sites for inter-tier visibility: horizon redshift neutralizes tier time-scale mismatches and thus can satisfy the resonance condition \eqref{eq:resonance_cond} for modes that would otherwise be far off-shell.
+
+\subsection{Gravity as \emph{omnitier} (metric components with tier structure)}
+In standard GR the metric \(g_{\mu\nu}(x)\) is a single tensor field. In TTT we promote geometric objects to RN-valued quantities, so the metric and curvature carry tier components:
+\begin{equation}\label{eq:rn_metric}
+\mathbf{g}_{\mu\nu}(x) \;=\; \sum_{X\in\mathcal B} g_{\mu\nu}^{(X)}(x)\; X ,
+\end{equation}
+and similarly for the Einstein tensor \(\mathbf{G}_{\mu\nu}=\sum G_{\mu\nu}^{(X)}X\). Because the gravitational field has basis components at many tiers it naturally couples matter coefficients across tiers through the RN-valued Einstein equations:
+\[
+\mathbf{G}_{\mu\nu}(\mathbf{g}) \;=\; 8\pi G \,\mathbf{T}_{\mu\nu}(\Phi),
+\]
+with \(\mathbf{T}_{\mu\nu}=\sum T_{\mu\nu}^{(X)}X\) the RN-valued stress-energy. This is the operational sense in which gravity is \emph{omnitier}: the geometry transmits dynamical influence between tiers (via mixed RN products and the projection rules) and thereby provides the natural channel for tier elevation and inter-tier energy exchange.\footnote{Operational calculations must respect the restricted-associativity axioms so that only certain mixed products are physically meaningful in the projected sector; see Eq.~\eqref{eq:assoc2}.}
+
+\subsection{Information ascension and the resolution of the black-hole information paradox}
+TTT gives a transparent bookkeeping resolution to the information paradox:
+
+\paragraph{Global RN determinism.} The RN-valued field \(\Phi(x)\) (including metric \& matter coefficients) evolves deterministically under RN-GR:
+\[
+\Phi(t) \;\xrightarrow{\ \text{deterministic RN dynamics}\ } \;\Phi(t').
+\]
+The full RN evolution is reversible (unitary in an appropriate RN sense after deformation), and no information is destroyed at the RN level.
+
+\paragraph{Projection-induced apparent non-unitarity.} Observers restricted to tier \(T_0\) only have access to the projected operator algebra and state:
+\[
+\rho_0(t) \;=\; \mathrm{Tr}_{\text{tiers}\neq0}\Big( \ket{\Psi_{\rm RN}(t)}\!\bra{\Psi_{\rm RN}(t)} \Big),
+\]
+where \(\ket{\Psi_{\rm RN}(t)}\) is the RN-state in a suitable representation and \(\mathrm{Tr}_{\text{tiers}\neq0}\) denotes the effective tracing-out/projection of non-\(T_0\) degrees of freedom. Even though the RN dynamics preserves global information, the \emph{reduced} state \(\rho_0(t)\) evolves non-unitarily in general (it is a CPTP map generated by coupling to unobserved tiers). This is the origin of apparent information loss when one insists on describing black-hole evolution solely within \(T_0\).
+
+\paragraph{Black-hole ascension mechanism.} As matter falls toward the horizon the RN dynamics and geometry cause its amplitude to shift into higher-tier coefficients (``ascension''):
+\[
+\Phi_{\rm matter}(t)\;=\;\sum_X \phi_X^{(\rm matter)}(t)X
+\quad\longrightarrow\quad
+\phi_{\omega}^{(\rm matter)} \text{ grows near horizon,}
+\]
+so that the information becomes carried predominantly by \(\omega\)-type coefficients (or other non-\(T_0\) coefficients). From the viewpoint of \(T_0\) the information has become inaccessible (effectively ``hidden''), not destroyed. The effective map on \(T_0\) appears non-invertible because projection discards the ascended-sector information.
+
+\paragraph{Evaporation and return channels.} If the inter-tier coupling \(S_{\rm eff}\) becomes non-negligible during evaporation (for instance via resonant effects or backreaction), some information can leak back into \(T_0\) encoded in subtle correlations of the outgoing radiation (non-thermal structure, multi-mode correlators, phase relations). Thus the RN picture allows unitary global evolution while reproducing the semiclassical appearance of thermal emission at leading order and small, principled deviations (the signatures discussed earlier).
+
+Formally, denote the RN unitary evolution by \(U_{\rm RN}(t)\). The reduced physical map on tier \(T_0\) is
+\begin{equation}\label{eq:reduced_map}
+\Lambda_t[\rho_0(0)] \;=\; \mathrm{Tr}_{\text{tiers}\neq0}\!\Big( U_{\rm RN}(t)\,\rho_{\rm RN}(0)\,U_{\rm RN}^\dagger(t) \Big).
+\end{equation}
+Although \(U_{\rm RN}\) is invertible, \(\Lambda_t\) need not be; any apparent non-unitarity of \(\Lambda_t\) is thus a projection artifact, not a fundamental loss of information.
+
+\subsection{Summary of observational implications}
+\begin{itemize}
+  \item \textbf{Where to expect tier-elevation signatures:} near horizons and in strongly time-dilated regions where the geometric mapping \(M(r;T\!\to\!0)\) can satisfy \(\Delta E\approx0\) (Eq.~\eqref{eq:resonance_cond}).  
+  \item \textbf{What to look for:} resonant spectral bumps, narrow lines from discrete tier modes, frequency-dependent entanglement/correlation patterns in outgoing radiation, and stimulated behaviour when lower-tier occupations exist.  
+  \item \textbf{Conceptual payoff:} global unitarity is preserved in RN-GR, while the apparent information loss and effective thermality in \(T_0\) are consequences of projection + redshift-induced ascension.
+\end{itemize}
+
+\paragraph{Caveats.} The above is a physically well-posed RN-level resolution, but to make quantitative predictions one must (i) specify the RN-GR microphysics that determines \(M(r;T\!\to\!0)\) and \(V_{\rm tier}\), (ii) compute the backreaction self-consistently, and (iii) include the restricted-associativity rules that determine which mixed products survive projection. These are technical tasks but are in principle straightforward within the RN framework.
+
+\section{RN-valued classical fields and action}
+\label{sec:rn_dynamics}
+An RN-valued scalar field is expanded coefficientwise:
+\[
+\Phi(x)=\sum_{X\in\mathcal B}\phi_X(x)\,X,\qquad \phi_X(x)\in\mathbb C.
+\]
+Derivatives act only on coefficients:
+\[
+\partial_\mu(\phi_X X)=(\partial_\mu\phi_X)X.
+\]
+A simple RN-valued scalar action (coefficientwise) is
+\[
+S[\Phi]=\int d^4x\sqrt{-g}\;\sum_X\Big(\tfrac12 g^{\mu\nu}\partial_\mu\phi_X\partial_\nu\phi_X - \tfrac12 m^2\phi_X^2\Big)X,
+\]
+which yields the coefficientwise Klein--Gordon equations:
+\[
+\Box \phi_X + m^2 \phi_X = 0,\qquad\forall X\in\mathcal B.
+\]
+
+\section{Mode expansion and classical RN Poisson bracket}
+Write the mode expansion for a coefficient \(\phi_X\):
+\[
+\phi_X(x)=\int \frac{d^3k}{(2\pi)^3}\frac{1}{\sqrt{2\omega_k}}\big(A_X(\mathbf k)e^{-ik\cdot x} + A_X^*(\mathbf k)e^{ik\cdot x}\big).
+\]
+We posit a classical RN Poisson bracket on mode coefficients. For modes of the \(\omega\)-coefficient:
+\[
+\{A_k,A_{k'}^*\}_{\text{RN}} = \delta_{kk'}\,\omega.
+\]
+
+\section{Quantization as deformation}
+\label{sec:quantization}
+Quantization is introduced as a deformation of the RN Poisson bracket:
+\[
+[\,\cdot\,,\cdot\,]_{\text{RN}} = i\hbar\,\{\cdot,\cdot\}_{\text{RN}}.
+\]
+Applying this to the classical RN PB yields the RN-level commutator:
+\[
+[\,A_k,A_{k'}^\dagger\,]_{\text{RN}} = \hbar\,\delta_{kk'}\,\omega.
+\]
+\emph{Important:} \(\hbar\) arises at this deformation step. This is the point at which the RN algebra becomes noncommutative in the sense needed for operator quantum mechanics.
+
+\section{Tier projection and observable operator algebra}
+Define projection to our tier \(T_0\):
+\[
+P_0(X) := \mathrm{Normalize}(\varepsilon\cdot X).
+\]
+Using \(\varepsilon\omega=1\) we get
+\[
+P_0(\omega)=1.
+\]
+Projecting the RN commutator:
+\[
+P_0\big([A_k,A_{k'}^\dagger]_{\text{RN}}\big) = \hbar\,\delta_{kk'}
+\quad\Rightarrow\quad
+[\hat a_k,\hat a_{k'}^\dagger] = \hbar\,\delta_{kk'}.
+\]
+Construct Fock space in the usual way with \(\hat a_k, \hat a_k^\dagger\).
+
+\section{Hamiltonian, Schrödinger equation and single-particle emergence}
+Projected Hamiltonian (free-field):
+\[
+\hat H = \sum_k \hbar\omega_k\,\hat a_k^\dagger \hat a_k.
+\]
+Operator Schrödinger equation:
+\[
+i\hbar\partial_t|\Psi\rangle = \hat H |\Psi\rangle.
+\]
+One-particle wavefunction \(\psi(x,t)=\langle x|\Psi_{\text{1p}}(t)\rangle\) satisfies the Schrödinger PDE in the non-relativistic limit. Note that the single-particle Schrödinger dynamics emerges from the projected algebra (quantization + projection), not from assuming \(\hbar\) inside the classical KG ansatz.
+
+\section{Inter-tier coupling: phenomenological model and black-hole coupling}
+Introduce coupling parameter \(S\) controlling inter-tier interactions:
+\[
+H_{\text{tot}} = H_{\text{intra}} + S\,V_{\text{tier}}.
+\]
+Model an effective frequency-dependent coupling \(S_{\rm eff}(\omega)\) capturing resonance and redshift:
+\[
+S_{\rm eff}(\omega) = S_0 + \frac{A\,\Gamma^2}{(\omega-\omega_0)^2 + \Gamma^2}.
+\]
+
+\subsection{TTT-modified Hawking emission: working spectral model}
+Standard Hawking occupation:
+\[
+n_{\rm th}(\omega)=\frac{1}{e^{\hbar\omega/T_H}-1}.
+\]
+TTT toy spectrum:
+\[
+n_{\rm TTT}(\omega) = G(\omega)\,S_{\rm eff}(\omega)\,n_{\rm th}(\omega) + \sum_j \frac{B_j\Gamma_j^2}{(\omega-\omega_j)^2+\Gamma_j^2},
+\]
+where \(G(\omega)\) is a greybody factor and the sum captures discrete lower-tier (or cavity) lines.
+
+\section{Experimental signatures and fitting protocol}
+Fit experimental \(n_{\rm exp}(\omega)\) with:
+\[
+n_{\rm model}(\omega)=G(\omega)\,S_{\rm eff}(\omega)\,\frac{1}{e^{\hbar\omega/T_H}-1} + \sum_j L_j(\omega)
+\]
+where \(L_j(\omega)\) are Lorentzian lines. Compare nested models (no-resonance vs resonant \(S_{\rm eff}\)) using likelihood/BIC.
+
+\section{Interpretation: implications of the thought experiment for measurement, information, and collapse}
+\begin{itemize}
+  \item \textbf{Measurement:} measurement = projection \(P_0\) + normalization; collapse is emergent informational loss, not fundamental stochastic dynamics.
+  \item \textbf{Information and black holes:} near-horizon tier-elevation provides an information bookkeeping channel: information moves between tiers under redshift rather than being destroyed.
+  \item \textbf{Superposition:} is a reduced description of deterministic RN structure after projection.
+\end{itemize}
+
+\section{Concluding remarks}
+The added ``man and genie'' section makes the ontology and interpretive claims explicit: TTT models what happens when parts of the world cross tier boundaries, and the projection map accounts for quantum probabilistic outcomes. The core empirical knob remains \(S_{\rm eff}(\omega)\) and any detected resonant structure in analogue or astrophysical spectral data would be a key test for TTT-type physics.
+
+\section*{Acknowledgments}
+Future Physics Professor in College
+\begin{thebibliography}{9}
+\bibitem{Philbin2008}
+T. G. Philbin \emph{et al.}, ``Fiber-optical analogue of the event horizon'', \emph{Science} (2008).
+\bibitem{Faccio2013}
+D. Faccio, ``Analogue gravity phenomenology'', review (2012/2013).
+\bibitem{Weinfurtner2011}
+S. Weinfurtner \emph{et al.}, ``Measurement of stimulated Hawking emission in an analogue system'', \emph{PRL} (2011).
+\bibitem{Steinhauer2016}
+J. Steinhauer, ``Observation of quantum Hawking radiation and its entanglement'', \emph{Nature Phys.} (2016).
+\end{thebibliography}
+
+\end{document}
